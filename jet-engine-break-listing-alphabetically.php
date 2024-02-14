@@ -162,7 +162,7 @@ class Jet_Engine_Break_Listing_Alphabetically {
 
 			if ( $prev_prop
 				&& $current_prop
-				&& $prev_prop !== $current_prop 
+				&& $prev_prop != $current_prop 
 			) {
 				$this->render_break( $post, $break_by, $markup );
 			}
@@ -177,7 +177,9 @@ class Jet_Engine_Break_Listing_Alphabetically {
 			return;
 		}
 
-		return mb_substr( $object->$prop, 0, 1 );
+		$prop = mb_substr( $object->$prop, 0, 1 );
+
+		return strtoupper( $prop );
 
 	}
 
