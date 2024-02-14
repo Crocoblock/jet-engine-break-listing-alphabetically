@@ -178,6 +178,8 @@ class Jet_Engine_Break_Listing_Alphabetically {
 		}
 
 		$prop = mb_substr( $object->$prop, 0, 1 );
+		$prop = iconv( 'UTF-8','ASCII//TRANSLIT', $prop );
+		$prop = preg_replace( '/[^a-zA-Z]*/', '', $prop );
 
 		return strtoupper( $prop );
 
